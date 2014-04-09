@@ -25,7 +25,7 @@ public class SignalsToCommandsTable {
         List<Command> commands = new ArrayList<Command>();
 
         for (String signal : signals) {
-            if (signal.equals(""))
+            if (signal.isEmpty())
                 continue;
 
             commands.add(createCommand(signal, world));
