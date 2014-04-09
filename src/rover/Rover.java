@@ -1,14 +1,5 @@
 package rover;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import rover.commands.MoveBackwards;
-import rover.commands.MoveForwards;
-import rover.commands.RotateLeft;
-import rover.commands.RotateRight;
-
 public class Rover {
 
     private Location location;
@@ -20,45 +11,8 @@ public class Rover {
     }
 
     public void receive(String signalsSequence) {
-        Commands commands = translate(signalsSequence);
-
+        Commands commands = new SignalsToCommandsTable().translate(signalsSequence, world);
         location = commands.apply(location);
-    }
-
-    private Commands translate(String signalsSequence) {
-        List<String> signals = extractSignals(signalsSequence);
-
-        Commands commands = translate(signals);
-        return commands;
-    }
-
-    private Commands translate(List<String> signals) {
-        List<Command> commands = new ArrayList<Command>();
-
-        for (String signal : signals) {
-            if (signal.equals("")) {
-                continue;
-            }
-            Command command = createCommand(signal);
-            commands.add(command);
-        }
-        return new Commands(commands);
-    }
-
-    private List<String> extractSignals(String commandsSequence) {
-        return Arrays.asList(commandsSequence.split(""));
-    }
-
-    private Command createCommand(String signal) {
-        if ("l".equals(signal)) {
-            return new RotateLeft();
-        } else if ("r".equals(signal)) {
-            return new RotateRight();
-        } else if (signal.equals("f")) {
-            return new MoveForwards(world);
-        } else {
-            return new MoveBackwards(world);
-        }
     }
 
     @Override
