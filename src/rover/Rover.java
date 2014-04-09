@@ -37,10 +37,11 @@ public class Rover {
         } else if ("r".equals(command)) {
             this.location = rotateRight(command, this.location, this.world);
         } else if (command.equals("f")) {
-            Command moveForward = new MoveForwards(world);
-            this.location = moveForward.apply(location);
+            Command moveForwards = new MoveForwards(world);
+            this.location = moveForwards.apply(location);
         } else {
-            this.location = move(command, this.location, this.world);
+            Command movebackwards = new MoveBackwards(world);
+            this.location = movebackwards.apply(location);
         }
     }
 

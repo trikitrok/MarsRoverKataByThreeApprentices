@@ -14,6 +14,7 @@ public class MoveForwards implements Command {
         this.world = world;
     }
 
+    @Override
     public Location apply(Location location) {
         Position tentativePosition = location.getOrientation().move(1, location.getPosition());
 
