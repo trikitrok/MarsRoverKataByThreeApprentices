@@ -20,11 +20,16 @@ public class Rover {
     }
 
     public void receive(String signalsSequence) {
+        Commands commands = translate(signalsSequence);
+
+        location = commands.apply(location);
+    }
+
+    private Commands translate(String signalsSequence) {
         List<String> signals = extractSignals(signalsSequence);
 
         Commands commands = translate(signals);
-
-        location = commands.apply(location);
+        return commands;
     }
 
     private Commands translate(List<String> signals) {
