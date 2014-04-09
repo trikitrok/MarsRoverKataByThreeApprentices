@@ -50,31 +50,6 @@ public class Rover {
         }
     }
 
-    private Location rotateRight(String command, Location location, World world) {
-        return new Location(location.getPosition(), location.getOrientation().rotateRight());
-    }
-
-    private Location rotateLeft(String command, Location location, World world) {
-        return new Location(location.getPosition(), location.getOrientation().rotateLeft());
-    }
-
-    private Location move(String command, Location location, World world) {
-        Position tentativePosition = location.getOrientation().move(computeDisplacement(command),
-                location.getPosition());
-
-        if (world.hasObstacleAt(tentativePosition)) {
-            throw new ObstacleFoundException();
-        }
-        return new Location(world.wrap(tentativePosition), location.getOrientation());
-    }
-
-    private int computeDisplacement(String command) {
-        if (command.equals("f")) {
-            return 1;
-        }
-        return -1;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
