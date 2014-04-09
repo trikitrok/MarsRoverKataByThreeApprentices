@@ -9,10 +9,6 @@ public class SquaredWorld implements World {
     private int side;
     private Obstacles obstacles;
 
-    public SquaredWorld(int side) {
-        this(side, new Obstacles());
-    }
-
     public SquaredWorld(int side, Obstacles obstacles) {
         this.side = side;
         this.obstacles = obstacles;

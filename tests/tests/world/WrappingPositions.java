@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import rover.Obstacles;
 import rover.Position;
 import rover.worlds.SquaredWorld;
 
@@ -50,6 +51,6 @@ public class WrappingPositions {
 
     @Before
     public void setUp() {
-        world = new SquaredWorld(2);
+        world = new SquaredWorld(2, new Obstacles());
     }
 }

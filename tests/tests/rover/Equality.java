@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import rover.Obstacles;
 import rover.Orientation;
 import rover.Position;
 import rover.Rover;
@@ -33,7 +34,8 @@ public class Equality {
 
     @Test
     public void whenInDifferentWorlds() {
-        assertNotEquals(rover, new Rover(position, orientation, new SquaredWorld(1)));
+        assertNotEquals(rover, new Rover(position, orientation,
+                new SquaredWorld(1, new Obstacles())));
     }
 
     @Before
