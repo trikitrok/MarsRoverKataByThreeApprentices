@@ -18,15 +18,6 @@ public class Rover {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((location == null) ? 0 : location.hashCode());
-        result = prime * result + ((world == null) ? 0 : world.hashCode());
-        return result;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;

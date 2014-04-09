@@ -30,15 +30,6 @@ public class SquaredWorld implements World {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((obstacles == null) ? 0 : obstacles.hashCode());
-        result = prime * result + side;
-        return result;
-    }
-
-    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -56,5 +47,4 @@ public class SquaredWorld implements World {
             return false;
         return true;
     }
-
 }
