@@ -4,14 +4,16 @@ public class Rover {
 
     private Location location;
     private World world;
+    private SignalsToCommandsTable signalsToCommands;
 
     public Rover(Position position, Orientation orientation, World world) {
         this.world = world;
         this.location = new Location(position, orientation);
+        this.signalsToCommands = new SignalsToCommandsTable();
     }
 
     public void receive(String signalsSequence) {
-        Commands commands = new SignalsToCommandsTable().translate(signalsSequence, world);
+        Commands commands = signalsToCommands.translate(signalsSequence, world);
         location = commands.apply(location);
     }
 
