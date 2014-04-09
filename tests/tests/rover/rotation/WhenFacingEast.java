@@ -1,0 +1,40 @@
+package tests.rover.rotation;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import rover.Orientation;
+import rover.Position;
+import rover.Rover;
+import rover.World;
+import rover.worlds.InfiniteWorld;
+
+public class WhenFacingEast {
+
+    @Test
+    public void left() {
+        rover.receive("l");
+
+        assertEquals(new Rover(position, Orientation.NORTH, world), rover);
+    }
+
+    @Test
+    public void right() {
+        rover.receive("r");
+
+        assertEquals(new Rover(position, Orientation.SOUTH, world), rover);
+    }
+
+    private Rover rover;
+    private Position position;
+    private World world;
+
+    @Before
+    public void setUp() {
+        position = new Position(0, 0);
+        world = new InfiniteWorld();
+        rover = new Rover(position, Orientation.EAST, world);
+    }
+}
