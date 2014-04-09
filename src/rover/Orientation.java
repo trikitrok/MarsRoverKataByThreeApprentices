@@ -9,7 +9,7 @@ public enum Orientation {
             return new Position(old.getX(), old.getY() - displacement);
         }
 
-        Orientation rotateLeft() {
+        public Orientation rotateLeft() {
             return Orientation.EAST;
         }
 
@@ -23,7 +23,7 @@ public enum Orientation {
             return new Position(old.getX(), old.getY() + displacement);
         }
 
-        Orientation rotateLeft() {
+        public Orientation rotateLeft() {
             return Orientation.WEST;
         }
 
@@ -37,7 +37,7 @@ public enum Orientation {
             return new Position(old.getX() + displacement, old.getY());
         }
 
-        Orientation rotateLeft() {
+        public Orientation rotateLeft() {
             return Orientation.NORTH;
         }
 
@@ -51,7 +51,7 @@ public enum Orientation {
             return new Position(old.getX() - displacement, old.getY());
         }
 
-        Orientation rotateLeft() {
+        public Orientation rotateLeft() {
             return Orientation.SOUTH;
         }
 
@@ -64,7 +64,7 @@ public enum Orientation {
         throw new RuntimeErrorException(null, "move");
     }
 
-    Orientation rotateLeft() {
+    public Orientation rotateLeft() {
         throw new RuntimeErrorException(null, "rotateLeft");
     }
 

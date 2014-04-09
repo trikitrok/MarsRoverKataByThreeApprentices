@@ -5,6 +5,7 @@ import java.util.List;
 
 import rover.commands.MoveBackwards;
 import rover.commands.MoveForwards;
+import rover.commands.RotateLeft;
 import rover.commands.RotateRight;
 
 public class Rover {
@@ -35,7 +36,8 @@ public class Rover {
         }
 
         if ("l".equals(command)) {
-            this.location = rotateLeft(command, this.location, this.world);
+            Command rotateLeft = new RotateLeft();
+            this.location = rotateLeft.apply(location);
         } else if ("r".equals(command)) {
             Command rotateRight = new RotateRight();
             this.location = rotateRight.apply(location);
