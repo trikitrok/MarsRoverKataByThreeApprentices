@@ -39,17 +39,15 @@ public class Rover {
 
         if ("l".equals(signal)) {
             command = new RotateLeft();
-            this.location = command.apply(location);
         } else if ("r".equals(signal)) {
             command = new RotateRight();
-            this.location = command.apply(location);
         } else if (signal.equals("f")) {
             command = new MoveForwards(world);
-            this.location = command.apply(location);
         } else {
             command = new MoveBackwards(world);
-            this.location = command.apply(location);
         }
+
+        this.location = command.apply(location);
     }
 
     @Override
