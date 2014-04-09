@@ -1,5 +1,6 @@
 package rover;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,11 +22,17 @@ public class Rover {
     public void receive(String signalsSequence) {
         List<String> signals = extractSignals(signalsSequence);
 
+        List<Command> commands = new ArrayList<Command>();
+
         for (String signal : signals) {
             if (signal.equals("")) {
                 continue;
             }
             Command command = createCommand(signal);
+            commands.add(command);
+        }
+
+        for (Command command : commands) {
             this.location = command.apply(location);
         }
     }
