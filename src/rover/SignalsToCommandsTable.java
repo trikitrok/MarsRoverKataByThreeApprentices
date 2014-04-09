@@ -7,8 +7,14 @@ import java.util.List;
 import rover.commands.Move;
 import rover.commands.RotateLeft;
 import rover.commands.RotateRight;
+import rover.commands.UnknownCommandException;
 
 public class SignalsToCommandsTable {
+
+    private final String ROTATE_LEFT = "l";
+    private final String ROTATE_RIGHT = "r";
+    private final String MOVE_FORWARDS = "f";
+    private final String MOVE_BACKWRDS = "b";
 
     public Commands translate(String signalsSequence, World world) {
         List<String> signals = extractSignals(signalsSequence);
@@ -32,14 +38,16 @@ public class SignalsToCommandsTable {
     }
 
     private Command createCommand(String signal, World world) {
-        if ("l".equals(signal)) {
+        if (ROTATE_LEFT.equals(signal)) {
             return new RotateLeft();
-        } else if ("r".equals(signal)) {
+        } else if (ROTATE_RIGHT.equals(signal)) {
             return new RotateRight();
-        } else if (signal.equals("f")) {
+        } else if (MOVE_FORWARDS.equals(signal)) {
             return new Move(world, 1);
-        } else {
+        } else if (MOVE_BACKWRDS.equals(signal)) {
             return new Move(world, -1);
+        } else {
+            throw new UnknownCommandException();
         }
     }
 }
