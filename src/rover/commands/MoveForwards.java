@@ -6,10 +6,10 @@ import rover.ObstacleFoundException;
 import rover.Position;
 import rover.World;
 
-public class MoveForward implements Command {
+public class MoveForwards implements Command {
     private World world;
 
-    public MoveForward(World world) {
+    public MoveForwards(World world) {
         super();
         this.world = world;
     }

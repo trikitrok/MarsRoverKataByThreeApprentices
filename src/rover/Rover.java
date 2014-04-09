@@ -3,7 +3,7 @@ package rover;
 import java.util.Arrays;
 import java.util.List;
 
-import rover.commands.MoveForward;
+import rover.commands.MoveForwards;
 
 public class Rover {
 
@@ -37,7 +37,7 @@ public class Rover {
         } else if ("r".equals(command)) {
             this.location = rotateRight(command, this.location, this.world);
         } else if (command.equals("f")) {
-            Command moveForward = new MoveForward(world);
+            Command moveForward = new MoveForwards(world);
             this.location = moveForward.apply(location);
         } else {
             this.location = move(command, this.location, this.world);
