@@ -1,4 +1,10 @@
-package rover;
+package rover.commands;
+
+import rover.Command;
+import rover.Location;
+import rover.ObstacleFoundException;
+import rover.Position;
+import rover.World;
 
 public class MoveBackwards implements Command {
 

@@ -13,7 +13,7 @@ public enum Orientation {
             return Orientation.EAST;
         }
 
-        Orientation rotateRight() {
+        public Orientation rotateRight() {
             return Orientation.WEST;
         }
     },
@@ -27,7 +27,7 @@ public enum Orientation {
             return Orientation.WEST;
         }
 
-        Orientation rotateRight() {
+        public Orientation rotateRight() {
             return Orientation.EAST;
         }
     },
@@ -41,7 +41,7 @@ public enum Orientation {
             return Orientation.NORTH;
         }
 
-        Orientation rotateRight() {
+        public Orientation rotateRight() {
             return Orientation.SOUTH;
         }
     },
@@ -55,7 +55,7 @@ public enum Orientation {
             return Orientation.SOUTH;
         }
 
-        Orientation rotateRight() {
+        public Orientation rotateRight() {
             return Orientation.NORTH;
         }
     };
@@ -68,7 +68,7 @@ public enum Orientation {
         throw new RuntimeErrorException(null, "rotateLeft");
     }
 
-    Orientation rotateRight() {
+    public Orientation rotateRight() {
         throw new RuntimeErrorException(null, "rotateRight");
     }
 }
