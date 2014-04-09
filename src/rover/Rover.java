@@ -18,29 +18,23 @@ public class Rover {
         this.location = new Location(position, orientation);
     }
 
-    public void receive(String commandsSequence) {
-        List<String> commands = extractCommands(commandsSequence);
+    public void receive(String signalsSequence) {
+        List<String> signals = extractSignals(signalsSequence);
 
-        for (String command : commands) {
-            receiveOneCommand(command);
+        for (String signal : signals) {
+            if (signal.equals("")) {
+                continue;
+            }
+            Command command = createCommand(signal);
+            this.location = command.apply(location);
         }
     }
 
-    private List<String> extractCommands(String commandsSequence) {
+    private List<String> extractSignals(String commandsSequence) {
         return Arrays.asList(commandsSequence.split(""));
     }
 
-    private void receiveOneCommand(String signal) {
-        if (signal.equals("")) {
-            return;
-        }
-
-        Command command = createOneCommand(signal);
-
-        this.location = command.apply(location);
-    }
-
-    private Command createOneCommand(String signal) {
+    private Command createCommand(String signal) {
         if ("l".equals(signal)) {
             return new RotateLeft();
         } else if ("r".equals(signal)) {
