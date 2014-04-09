@@ -1,6 +1,5 @@
 package rover.commands;
 
-import rover.Command;
 import rover.Location;
 
 public class RotateRight implements Command {

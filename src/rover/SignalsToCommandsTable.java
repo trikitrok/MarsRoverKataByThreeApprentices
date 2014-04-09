@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rover.commands.Command;
 import rover.commands.Move;
 import rover.commands.RotateLeft;
 import rover.commands.RotateRight;

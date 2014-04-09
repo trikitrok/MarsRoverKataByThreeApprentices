@@ -2,6 +2,8 @@ package rover;
 
 import java.util.List;
 
+import rover.commands.Command;
+
 public class Commands {
 
     private List<Command> commands;
