@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import rover.commands.MoveBackwards;
-import rover.commands.MoveForwards;
+import rover.commands.Move;
 import rover.commands.RotateLeft;
 import rover.commands.RotateRight;
 
@@ -38,9 +37,9 @@ public class SignalsToCommandsTable {
         } else if ("r".equals(signal)) {
             return new RotateRight();
         } else if (signal.equals("f")) {
-            return new MoveForwards(world);
+            return new Move(world, 1);
         } else {
-            return new MoveBackwards(world);
+            return new Move(world, -1);
         }
     }
 }
