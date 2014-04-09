@@ -9,11 +9,11 @@ public class Rover {
     public Rover(Position position, Orientation orientation, World world) {
         this.world = world;
         this.location = new Location(position, orientation);
-        this.signalsToCommands = new SignalsToCommandsTable();
+        this.signalsToCommands = new SignalsToCommandsTable(world);
     }
 
     public void receive(String signalsSequence) {
-        Commands commands = signalsToCommands.translate(signalsSequence, world);
+        Commands commands = signalsToCommands.translate(signalsSequence);
         location = commands.apply(location);
     }
 
