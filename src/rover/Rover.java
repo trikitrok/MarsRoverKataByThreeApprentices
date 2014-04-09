@@ -35,19 +35,21 @@ public class Rover {
             return;
         }
 
-        Command command;
-
-        if ("l".equals(signal)) {
-            command = new RotateLeft();
-        } else if ("r".equals(signal)) {
-            command = new RotateRight();
-        } else if (signal.equals("f")) {
-            command = new MoveForwards(world);
-        } else {
-            command = new MoveBackwards(world);
-        }
+        Command command = createOneCommand(signal);
 
         this.location = command.apply(location);
+    }
+
+    private Command createOneCommand(String signal) {
+        if ("l".equals(signal)) {
+            return new RotateLeft();
+        } else if ("r".equals(signal)) {
+            return new RotateRight();
+        } else if (signal.equals("f")) {
+            return new MoveForwards(world);
+        } else {
+            return new MoveBackwards(world);
+        }
     }
 
     @Override
