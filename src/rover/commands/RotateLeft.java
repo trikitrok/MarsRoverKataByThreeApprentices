@@ -8,5 +8,4 @@ public class RotateLeft implements Command {
     public Location apply(Location location) {
         return new Location(location.getPosition(), location.getOrientation().rotateLeft());
     }
-
 }
