@@ -22,18 +22,12 @@ public class Rover {
     public void receive(String signalsSequence) {
         List<String> signals = extractSignals(signalsSequence);
 
-        List<Command> commands = createCommands(signals);
+        Commands commands = translate(signals);
 
-        applyCommands(commands);
+        location = commands.apply(location);
     }
 
-    private void applyCommands(List<Command> commands) {
-        for (Command command : commands) {
-            this.location = command.apply(location);
-        }
-    }
-
-    private List<Command> createCommands(List<String> signals) {
+    private Commands translate(List<String> signals) {
         List<Command> commands = new ArrayList<Command>();
 
         for (String signal : signals) {
@@ -43,7 +37,7 @@ public class Rover {
             Command command = createCommand(signal);
             commands.add(command);
         }
-        return commands;
+        return new Commands(commands);
     }
 
     private List<String> extractSignals(String commandsSequence) {
