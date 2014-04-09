@@ -5,7 +5,7 @@ import javax.management.RuntimeErrorException;
 public enum Orientation {
 
     SOUTH {
-        Position move(int displacement, Position old) {
+        public Position move(int displacement, Position old) {
             return new Position(old.getX(), old.getY() - displacement);
         }
 
@@ -19,7 +19,7 @@ public enum Orientation {
     },
 
     NORTH {
-        Position move(int displacement, Position old) {
+        public Position move(int displacement, Position old) {
             return new Position(old.getX(), old.getY() + displacement);
         }
 
@@ -33,7 +33,7 @@ public enum Orientation {
     },
 
     EAST {
-        Position move(int displacement, Position old) {
+        public Position move(int displacement, Position old) {
             return new Position(old.getX() + displacement, old.getY());
         }
 
@@ -47,7 +47,7 @@ public enum Orientation {
     },
 
     WEST {
-        Position move(int displacement, Position old) {
+        public Position move(int displacement, Position old) {
             return new Position(old.getX() - displacement, old.getY());
         }
 
@@ -60,7 +60,7 @@ public enum Orientation {
         }
     };
 
-    Position move(int displacement, Position old) {
+    public Position move(int displacement, Position old) {
         throw new RuntimeErrorException(null, "move");
     }
 
