@@ -31,12 +31,20 @@ public class Rover {
         }
 
         if ("l".equals(command)) {
-            setOrientation(getOrientation().rotateLeft());
+            this.location = rotateLeft(command, this.location, this.world);
         } else if ("r".equals(command)) {
-            setOrientation(getOrientation().rotateRight());
+            this.location = rotateRight(command, this.location, this.world);
         } else {
             this.location = move(command, this.location, this.world);
         }
+    }
+
+    private Location rotateRight(String command, Location location, World world) {
+        return new Location(location.getPosition(), location.getOrientation().rotateRight());
+    }
+
+    private Location rotateLeft(String command, Location location, World world) {
+        return new Location(location.getPosition(), location.getOrientation().rotateLeft());
     }
 
     private Location move(String command, Location location, World world) {
@@ -54,18 +62,6 @@ public class Rover {
             return 1;
         }
         return -1;
-    }
-
-    private Position getPosition() {
-        return this.location.getPosition();
-    }
-
-    private Orientation getOrientation() {
-        return this.location.getOrientation();
-    }
-
-    private void setOrientation(Orientation orientation) {
-        this.location = new Location(getPosition(), orientation);
     }
 
     @Override
