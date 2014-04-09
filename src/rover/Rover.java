@@ -30,23 +30,25 @@ public class Rover {
         return Arrays.asList(commandsSequence.split(""));
     }
 
-    private void receiveOneCommand(String command) {
-        if (command.equals("")) {
+    private void receiveOneCommand(String signal) {
+        if (signal.equals("")) {
             return;
         }
 
-        if ("l".equals(command)) {
-            Command rotateLeft = new RotateLeft();
-            this.location = rotateLeft.apply(location);
-        } else if ("r".equals(command)) {
-            Command rotateRight = new RotateRight();
-            this.location = rotateRight.apply(location);
-        } else if (command.equals("f")) {
-            Command moveForwards = new MoveForwards(world);
-            this.location = moveForwards.apply(location);
+        Command command;
+
+        if ("l".equals(signal)) {
+            command = new RotateLeft();
+            this.location = command.apply(location);
+        } else if ("r".equals(signal)) {
+            command = new RotateRight();
+            this.location = command.apply(location);
+        } else if (signal.equals("f")) {
+            command = new MoveForwards(world);
+            this.location = command.apply(location);
         } else {
-            Command movebackwards = new MoveBackwards(world);
-            this.location = movebackwards.apply(location);
+            command = new MoveBackwards(world);
+            this.location = command.apply(location);
         }
     }
 
