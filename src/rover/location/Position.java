@@ -10,11 +10,19 @@ public class Position {
         this.y = y;
     }
 
-    public int getX() {
+    public Position displaceInY(int displacement) {
+        return new Position(this.x, this.y + displacement);
+    }
+
+    public Position displaceInX(int displacement) {
+        return new Position(this.x + displacement, this.y);
+    }
+
+    public int x() {
         return x;
     }
 
-    public int getY() {
+    public int y() {
         return y;
     }
 

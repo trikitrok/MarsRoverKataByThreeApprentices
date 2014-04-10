@@ -23,12 +23,12 @@ public class SignalsToCommandsTable {
 
     private Map<String, Command> commandsBySignal;
 
-    public SignalsToCommandsTable(World world) {
+    public SignalsToCommandsTable() {
         commandsBySignal = new HashMap<String, Command>();
         commandsBySignal.put(ROTATE_LEFT, new RotateLeft());
         commandsBySignal.put(ROTATE_RIGHT, new RotateRight());
-        commandsBySignal.put(MOVE_FORWARDS, new Move(world, FORWARDS_DISPLACEMENT));
-        commandsBySignal.put(MOVE_BACKWARDS, new Move(world, BACKWARDS_DISPLACEMENT));
+        commandsBySignal.put(MOVE_FORWARDS, new Move(FORWARDS_DISPLACEMENT));
+        commandsBySignal.put(MOVE_BACKWARDS, new Move(BACKWARDS_DISPLACEMENT));
     }
 
     public Commands translate(String signalsSequence) {

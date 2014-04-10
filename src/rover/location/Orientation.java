@@ -6,7 +6,7 @@ public enum Orientation {
 
     SOUTH {
         public Position move(int displacement, Position old) {
-            return new Position(old.getX(), old.getY() - displacement);
+            return old.displaceInY(-displacement);
         }
 
         public Orientation rotateLeft() {
@@ -20,7 +20,7 @@ public enum Orientation {
 
     NORTH {
         public Position move(int displacement, Position old) {
-            return new Position(old.getX(), old.getY() + displacement);
+            return old.displaceInY(displacement);
         }
 
         public Orientation rotateLeft() {
@@ -34,7 +34,7 @@ public enum Orientation {
 
     EAST {
         public Position move(int displacement, Position old) {
-            return new Position(old.getX() + displacement, old.getY());
+            return old.displaceInX(displacement);
         }
 
         public Orientation rotateLeft() {
@@ -48,7 +48,7 @@ public enum Orientation {
 
     WEST {
         public Position move(int displacement, Position old) {
-            return new Position(old.getX() - displacement, old.getY());
+            return old.displaceInX(-displacement);
         }
 
         public Orientation rotateLeft() {

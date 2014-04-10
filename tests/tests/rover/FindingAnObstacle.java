@@ -8,6 +8,7 @@ import static org.mockito.Mockito.when;
 import org.junit.Before;
 import org.junit.Test;
 
+import rover.Location;
 import rover.Rover;
 import rover.World;
 import rover.location.Orientation;
@@ -26,7 +27,8 @@ public class FindingAnObstacle {
         try {
             rover.receive("f");
         } catch (ObstacleFoundException e) {
-            assertEquals(new Rover(initialPosition, initialOrientation, stubWorld), rover);
+            assertEquals(new Rover(new Location(initialPosition, initialOrientation, stubWorld)),
+                    rover);
         }
     }
 
@@ -38,7 +40,7 @@ public class FindingAnObstacle {
         stubWorld = mock(World.class);
         when(stubWorld.hasObstacleAt(any(Position.class))).thenReturn(true);
 
-        rover = new Rover(initialPosition, initialOrientation, stubWorld);
+        rover = new Rover(new Location(initialPosition, initialOrientation, stubWorld));
     }
 
     private World stubWorld;

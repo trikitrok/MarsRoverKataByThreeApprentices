@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import rover.Location;
 import rover.Rover;
 import rover.World;
 import rover.location.Orientation;
@@ -18,24 +19,24 @@ public class Equality {
 
     @Test
     public void whenEqual() {
-        assertEquals(rover, new Rover(position, orientation, world));
+        assertEquals(rover, new Rover(new Location(position, orientation, world)));
     }
 
     @Test
     public void whenAtDifferentPositions() {
-        assertNotEquals(rover, new Rover(new Position(1, 0), orientation, world));
-        assertNotEquals(rover, new Rover(new Position(0, 1), orientation, world));
+        assertNotEquals(rover, new Rover(new Location(new Position(1, 0), orientation, world)));
+        assertNotEquals(rover, new Rover(new Location(new Position(0, 1), orientation, world)));
     }
 
     @Test
     public void whenHavingDifferentOrientations() {
-        assertNotEquals(rover, new Rover(position, Orientation.NORTH, world));
+        assertNotEquals(rover, new Rover(new Location(position, Orientation.NORTH, world)));
     }
 
     @Test
     public void whenInDifferentWorlds() {
-        assertNotEquals(rover, new Rover(position, orientation,
-                new SquaredWorld(1, new Obstacles())));
+        assertNotEquals(rover, new Rover(new Location(position, orientation, new SquaredWorld(1,
+                new Obstacles()))));
     }
 
     @Before
@@ -43,7 +44,7 @@ public class Equality {
         world = new InfiniteWorld();
         orientation = Orientation.SOUTH;
         position = new Position(0, 0);
-        rover = new Rover(position, orientation, world);
+        rover = new Rover(new Location(position, orientation, world));
     }
 
     private World world;

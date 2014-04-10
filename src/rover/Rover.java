@@ -1,18 +1,13 @@
 package rover;
 
-import rover.location.Orientation;
-import rover.location.Position;
-
 public class Rover {
 
     private Location location;
-    private World world;
     private SignalsToCommandsTable signalsToCommands;
 
-    public Rover(Position position, Orientation orientation, World world) {
-        this.world = world;
-        this.location = new Location(position, orientation);
-        this.signalsToCommands = new SignalsToCommandsTable(world);
+    public Rover(Location location) {
+        this.location = location;
+        this.signalsToCommands = new SignalsToCommandsTable();
     }
 
     public void receive(String signalsSequence) {
@@ -33,11 +28,6 @@ public class Rover {
             if (other.location != null)
                 return false;
         } else if (!location.equals(other.location))
-            return false;
-        if (world == null) {
-            if (other.world != null)
-                return false;
-        } else if (!world.equals(other.world))
             return false;
         return true;
     }

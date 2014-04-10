@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import rover.Location;
 import rover.Rover;
 import rover.World;
 import rover.location.Orientation;
@@ -17,14 +18,14 @@ public class WhenFacingEast {
     public void forwards() {
         rover.receive("f");
 
-        assertEquals(new Rover(new Position(1, 0), Orientation.EAST, world), rover);
+        assertEquals(new Rover(new Location(new Position(1, 0), Orientation.EAST, world)), rover);
     }
 
     @Test
     public void backwards() {
         rover.receive("b");
 
-        assertEquals(new Rover(new Position(-1, 0), Orientation.EAST, world), rover);
+        assertEquals(new Rover(new Location(new Position(-1, 0), Orientation.EAST, world)), rover);
     }
 
     private Rover rover;
@@ -33,6 +34,6 @@ public class WhenFacingEast {
     @Before
     public void setUp() {
         world = new InfiniteWorld();
-        rover = new Rover(new Position(0, 0), Orientation.EAST, world);
+        rover = new Rover(new Location(new Position(0, 0), Orientation.EAST, world));
     }
 }

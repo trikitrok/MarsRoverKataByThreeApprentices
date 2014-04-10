@@ -14,9 +14,9 @@ public class SquaredWorld implements World {
     }
 
     @Override
-    public Position wrap(Position tentativePosition) {
-        return new Position((tentativePosition.getX() + side) % side,
-                (tentativePosition.getY() + side) % side);
+    public Position wrap(Position position) {
+        return new Position((position.x() + side) % side,
+                (position.y() + side) % side);
     }
 
     @Override

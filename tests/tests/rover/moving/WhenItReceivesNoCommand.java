@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+import rover.Location;
 import rover.Rover;
 import rover.World;
 import rover.location.Orientation;
@@ -12,16 +13,15 @@ import rover.worlds.InfiniteWorld;
 
 public class WhenItReceivesNoCommand {
 
-	@Test
-	public void staysAtInitialPosition() {
-		World world = new InfiniteWorld();
-		Position initialPosition = new Position(1, 0);
-		Orientation initialOrientation = Orientation.SOUTH;
-		Rover rover = new Rover(initialPosition, initialOrientation, world);
+    @Test
+    public void staysAtInitialPosition() {
+        World world = new InfiniteWorld();
+        Position initialPosition = new Position(1, 0);
+        Orientation initialOrientation = Orientation.SOUTH;
+        Rover rover = new Rover(new Location(initialPosition, initialOrientation, world));
 
-		rover.receive("");
+        rover.receive("");
 
-		assertEquals(new Rover(initialPosition, initialOrientation, world),
-				rover);
-	}
+        assertEquals(new Rover(new Location(initialPosition, initialOrientation, world)), rover);
+    }
 }
