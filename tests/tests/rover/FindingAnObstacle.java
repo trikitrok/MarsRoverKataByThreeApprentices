@@ -8,11 +8,11 @@ import static org.mockito.Mockito.when;
 import org.junit.Before;
 import org.junit.Test;
 
-import rover.ObstacleFoundException;
 import rover.Orientation;
 import rover.Position;
 import rover.Rover;
 import rover.World;
+import rover.worlds.ObstacleFoundException;
 
 public class FindingAnObstacle {
 

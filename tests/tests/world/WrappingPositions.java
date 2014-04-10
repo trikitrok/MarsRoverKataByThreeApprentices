@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import rover.Obstacles;
 import rover.Position;
+import rover.worlds.Obstacles;
 import rover.worlds.SquaredWorld;
 
 public class WrappingPositions {

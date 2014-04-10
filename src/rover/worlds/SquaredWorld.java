@@ -1,6 +1,5 @@
 package rover.worlds;
 
-import rover.Obstacles;
 import rover.Position;
 import rover.World;
 

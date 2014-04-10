@@ -6,9 +6,9 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
-import rover.Obstacles;
 import rover.Position;
 import rover.World;
+import rover.worlds.Obstacles;
 import rover.worlds.SquaredWorld;
 
 public class WithObstacles {

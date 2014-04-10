@@ -1,7 +1,9 @@
-package rover;
+package rover.worlds;
 
 import java.util.Arrays;
 import java.util.List;
+
+import rover.Position;
 
 public class Obstacles {
 
