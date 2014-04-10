@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import rover.Location;
 import rover.Rover;
+import rover.SignalsToCommandsTable;
 import rover.World;
 import rover.location.Orientation;
 import rover.location.Position;
@@ -27,24 +28,27 @@ public class FindingAnObstacle {
         try {
             rover.receive("f");
         } catch (ObstacleFoundException e) {
-            assertEquals(new Rover(new Location(initialPosition, initialOrientation, stubWorld)),
-                    rover);
+            assertEquals(new Rover(new Location(initialPosition, initialOrientation, stubWorld),
+                    signalsToCommands), rover);
         }
     }
 
     @Before
     public void setUp() {
+        signalsToCommands = new SignalsToCommandsTable();
         initialPosition = new Position(0, 0);
         initialOrientation = Orientation.NORTH;
 
         stubWorld = mock(World.class);
         when(stubWorld.hasObstacleAt(any(Position.class))).thenReturn(true);
 
-        rover = new Rover(new Location(initialPosition, initialOrientation, stubWorld));
+        rover = new Rover(new Location(initialPosition, initialOrientation, stubWorld),
+                signalsToCommands);
     }
 
     private World stubWorld;
     private Rover rover;
     private Position initialPosition;
     private Orientation initialOrientation;
+    private SignalsToCommandsTable signalsToCommands;
 }

@@ -5,9 +5,9 @@ public class Rover {
     private Location location;
     private SignalsToCommandsTable signalsToCommands;
 
-    public Rover(Location location) {
+    public Rover(Location location, SignalsToCommandsTable signalsToCommands) {
         this.location = location;
-        this.signalsToCommands = new SignalsToCommandsTable();
+        this.signalsToCommands = signalsToCommands;
     }
 
     public void receive(String signalsSequence) {

@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import rover.Location;
 import rover.Rover;
+import rover.SignalsToCommandsTable;
 import rover.World;
 import rover.location.Orientation;
 import rover.location.Position;
@@ -18,7 +19,8 @@ public class InSphericalWorld {
     @Test
     public void hasItsPositionWrapped() {
         World world = mock(World.class);
-        Rover rover = new Rover(new Location(new Position(0, 1), Orientation.NORTH, world));
+        Rover rover = new Rover(new Location(new Position(0, 1), Orientation.NORTH, world),
+                new SignalsToCommandsTable());
 
         rover.receive("f");
 
