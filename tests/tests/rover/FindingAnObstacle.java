@@ -8,10 +8,10 @@ import static org.mockito.Mockito.when;
 import org.junit.Before;
 import org.junit.Test;
 
-import rover.Orientation;
-import rover.Position;
 import rover.Rover;
 import rover.World;
+import rover.location.Orientation;
+import rover.location.Position;
 import rover.worlds.ObstacleFoundException;
 
 public class FindingAnObstacle {

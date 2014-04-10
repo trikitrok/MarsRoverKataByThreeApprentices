@@ -1,4 +1,4 @@
-package rover;
+package rover.location;
 
 import javax.management.RuntimeErrorException;
 

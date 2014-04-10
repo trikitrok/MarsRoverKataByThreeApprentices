@@ -1,5 +1,8 @@
 package rover;
 
+import rover.location.Orientation;
+import rover.location.Position;
+
 public class Rover {
 
     private Location location;

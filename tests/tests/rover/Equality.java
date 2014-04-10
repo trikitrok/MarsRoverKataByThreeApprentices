@@ -6,10 +6,10 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import rover.Orientation;
-import rover.Position;
 import rover.Rover;
 import rover.World;
+import rover.location.Orientation;
+import rover.location.Position;
 import rover.worlds.InfiniteWorld;
 import rover.worlds.Obstacles;
 import rover.worlds.SquaredWorld;

@@ -7,10 +7,10 @@ import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
 
-import rover.Orientation;
-import rover.Position;
 import rover.Rover;
 import rover.World;
+import rover.location.Orientation;
+import rover.location.Position;
 
 public class InSphericalWorld {
 

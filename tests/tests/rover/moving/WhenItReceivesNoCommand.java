@@ -4,10 +4,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import rover.Orientation;
-import rover.Position;
 import rover.Rover;
 import rover.World;
+import rover.location.Orientation;
+import rover.location.Position;
 import rover.worlds.InfiniteWorld;
 
 public class WhenItReceivesNoCommand {

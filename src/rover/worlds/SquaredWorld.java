@@ -1,7 +1,7 @@
 package rover.worlds;
 
-import rover.Position;
 import rover.World;
+import rover.location.Position;
 
 public class SquaredWorld implements World {
 

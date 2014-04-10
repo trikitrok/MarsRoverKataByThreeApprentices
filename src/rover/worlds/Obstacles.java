@@ -3,7 +3,7 @@ package rover.worlds;
 import java.util.Arrays;
 import java.util.List;
 
-import rover.Position;
+import rover.location.Position;
 
 public class Obstacles {
 

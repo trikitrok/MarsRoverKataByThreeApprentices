@@ -1,8 +1,8 @@
 package rover.commands;
 
 import rover.Location;
-import rover.Position;
 import rover.World;
+import rover.location.Position;
 import rover.worlds.ObstacleFoundException;
 
 public class Move implements Command {
