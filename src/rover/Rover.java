@@ -15,6 +15,10 @@ public class Rover {
         location = commands.apply(location);
     }
 
+    public boolean at(Location location) {
+        return this.location.equals(location);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
