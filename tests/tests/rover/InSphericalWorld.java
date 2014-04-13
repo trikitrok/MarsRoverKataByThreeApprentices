@@ -4,14 +4,13 @@ import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static rover.location.Orientation.NORTH;
+import static tests.rover.RoverBuilder.aRover;
 
 import org.junit.Test;
 
-import rover.Location;
 import rover.Rover;
-import rover.SignalsToCommandsTable;
 import rover.World;
-import rover.location.Orientation;
 import rover.location.Position;
 
 public class InSphericalWorld {
@@ -19,8 +18,7 @@ public class InSphericalWorld {
     @Test
     public void hasItsPositionWrapped() {
         World world = mock(World.class);
-        Rover rover = new Rover(new Location(new Position(0, 1), Orientation.NORTH, world),
-                new SignalsToCommandsTable());
+        Rover rover = aRover().at(0, 1).facing(NORTH).in(world).build();
 
         rover.receive("f");
 

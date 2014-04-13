@@ -1,6 +1,7 @@
 package tests.rover.moving;
 
 import static org.junit.Assert.assertTrue;
+import static tests.rover.RoverBuilder.aRover;
 
 import org.junit.Test;
 
@@ -16,15 +17,11 @@ public class WhenItReceivesNoCommand {
 
     @Test
     public void staysAtInitialPosition() {
-        SignalsToCommandsTable signalsToCommands = new SignalsToCommandsTable();
-        World world = new InfiniteWorld();
-        Position initialPosition = new Position(1, 0);
-        Orientation initialOrientation = Orientation.SOUTH;
-        Rover rover = new Rover(new Location(initialPosition, initialOrientation, world),
-                signalsToCommands);
+        Rover rover = aRover().at(1, 0).in(new InfiniteWorld()).facing(Orientation.SOUTH).build();
 
         rover.receive("");
 
-        assertTrue(rover.at(new Location(initialPosition, initialOrientation, world)));
+        assertTrue(rover
+                .at(new Location(new Position(1, 0), Orientation.SOUTH, new InfiniteWorld())));
     }
 }
