@@ -1,6 +1,6 @@
 package tests.rover.moving;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -25,7 +25,6 @@ public class WhenItReceivesNoCommand {
 
         rover.receive("");
 
-        assertEquals(new Rover(new Location(initialPosition, initialOrientation, world),
-                signalsToCommands), rover);
+        assertTrue(rover.at(new Location(initialPosition, initialOrientation, world)));
     }
 }

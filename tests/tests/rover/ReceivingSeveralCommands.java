@@ -1,6 +1,6 @@
 package tests.rover;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class ReceivingSeveralCommands {
 
         rover.receive("bl");
 
-        assertEquals(new Rover(new Location(new Position(0, -1), Orientation.WEST,
-                new InfiniteWorld()), signalsToCommands), rover);
+        assertTrue(rover
+                .at(new Location(new Position(0, -1), Orientation.WEST, new InfiniteWorld())));
     }
 }

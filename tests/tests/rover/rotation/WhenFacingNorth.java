@@ -1,6 +1,6 @@
 package tests.rover.rotation;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -19,16 +19,14 @@ public class WhenFacingNorth {
     public void left() {
         rover.receive("l");
 
-        assertEquals(new Rover(new Location(position, Orientation.WEST, world), signalsToCommands),
-                rover);
+        assertTrue(rover.at(new Location(position, Orientation.WEST, world)));
     }
 
     @Test
     public void right() {
         rover.receive("r");
 
-        assertEquals(new Rover(new Location(position, Orientation.EAST, world), signalsToCommands),
-                rover);
+        assertTrue(rover.at(new Location(position, Orientation.EAST, world)));
     }
 
     private Rover rover;

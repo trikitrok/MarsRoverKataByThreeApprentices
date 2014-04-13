@@ -1,6 +1,6 @@
 package tests.rover;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -28,8 +28,7 @@ public class FindingAnObstacle {
         try {
             rover.receive("f");
         } catch (ObstacleFoundException e) {
-            assertEquals(new Rover(new Location(initialPosition, initialOrientation, stubWorld),
-                    signalsToCommands), rover);
+            assertTrue(rover.at(new Location(initialPosition, initialOrientation, stubWorld)));
         }
     }
 
