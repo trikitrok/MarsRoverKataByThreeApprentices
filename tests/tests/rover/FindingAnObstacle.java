@@ -1,15 +1,15 @@
 package tests.rover;
 
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static tests.rover.RoverBuilder.aRover;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static tests.MatchersFactory.isLocatedAt;
+import static tests.RoverBuilder.aRover;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import rover.Location;
 import rover.Rover;
 import rover.World;
 import rover.location.Orientation;
@@ -44,7 +44,8 @@ public class FindingAnObstacle {
         try {
             rover.receive("f");
         } catch (ObstacleFoundException e) {
-            assertTrue(rover.at(new Location(initialPosition, initialOrientation, stubWorld)));
+
+            assertThat(rover, isLocatedAt(initialPosition, initialOrientation, stubWorld));
         }
     }
 }

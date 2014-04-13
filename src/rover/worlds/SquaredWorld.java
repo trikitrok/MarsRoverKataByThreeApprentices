@@ -15,8 +15,7 @@ public class SquaredWorld implements World {
 
     @Override
     public Position wrap(Position position) {
-        return new Position((position.x() + side) % side,
-                (position.y() + side) % side);
+        return new Position((position.x() + side) % side, (position.y() + side) % side);
     }
 
     @Override
@@ -41,5 +40,10 @@ public class SquaredWorld implements World {
         if (side != other.side)
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "SquaredWorld [side=" + side + ", obstacles=" + obstacles + "]";
     }
 }

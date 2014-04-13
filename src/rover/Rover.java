@@ -18,4 +18,9 @@ public class Rover {
     public boolean at(Location location) {
         return this.location.equals(location);
     }
+
+    @Override
+    public String toString() {
+        return "Rover [location=" + location + "]";
+    }
 }

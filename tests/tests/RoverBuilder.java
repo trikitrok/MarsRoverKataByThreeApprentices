@@ -1,4 +1,4 @@
-package tests.rover;
+package tests;
 
 import rover.Location;
 import rover.Rover;

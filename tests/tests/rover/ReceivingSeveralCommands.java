@@ -1,14 +1,13 @@
 package tests.rover;
 
-import static org.junit.Assert.assertTrue;
-import static tests.rover.RoverBuilder.aRover;
+import static tests.RoverBuilder.aRover;
 import static rover.location.Orientation.*;
+import static tests.MatchersFactory.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.Test;
 
-import rover.Location;
 import rover.Rover;
-import rover.location.Position;
 import rover.worlds.InfiniteWorld;
 
 public class ReceivingSeveralCommands {
@@ -19,6 +18,6 @@ public class ReceivingSeveralCommands {
 
         rover.receive("bl");
 
-        assertTrue(rover.at(new Location(new Position(0, -1), WEST, new InfiniteWorld())));
+        assertThat(rover, isLocatedAt(0, -1, WEST, new InfiniteWorld()));
     }
 }

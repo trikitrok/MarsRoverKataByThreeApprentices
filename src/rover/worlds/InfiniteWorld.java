@@ -25,4 +25,9 @@ public class InfiniteWorld implements World {
 
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "InfiniteWorld";
+    }
 }

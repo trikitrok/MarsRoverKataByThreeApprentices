@@ -1,16 +1,15 @@
 package tests.rover.moving;
 
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static rover.location.Orientation.EAST;
-import static tests.rover.RoverBuilder.aRover;
+import static tests.MatchersFactory.isLocatedAt;
+import static tests.RoverBuilder.aRover;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import rover.Location;
 import rover.Rover;
 import rover.World;
-import rover.location.Position;
 import rover.worlds.InfiniteWorld;
 
 public class WhenFacingEast {
@@ -28,13 +27,13 @@ public class WhenFacingEast {
     public void forwards() {
         rover.receive("f");
 
-        assertTrue(rover.at(new Location(new Position(1, 0), EAST, world)));
+        assertThat(rover, isLocatedAt(1, 0, EAST, world));
     }
 
     @Test
     public void backwards() {
         rover.receive("b");
 
-        assertTrue(rover.at(new Location(new Position(-1, 0), EAST, world)));
+        assertThat(rover, isLocatedAt(-1, 0, EAST, world));
     }
 }

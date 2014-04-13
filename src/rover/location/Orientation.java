@@ -16,6 +16,10 @@ public enum Orientation {
         public Orientation rotateRight() {
             return Orientation.WEST;
         }
+
+        public String toString() {
+            return "South";
+        }
     },
 
     NORTH {
@@ -29,6 +33,10 @@ public enum Orientation {
 
         public Orientation rotateRight() {
             return Orientation.EAST;
+        }
+
+        public String toString() {
+            return "North";
         }
     },
 
@@ -44,6 +52,10 @@ public enum Orientation {
         public Orientation rotateRight() {
             return Orientation.SOUTH;
         }
+
+        public String toString() {
+            return "East";
+        }
     },
 
     WEST {
@@ -58,6 +70,10 @@ public enum Orientation {
         public Orientation rotateRight() {
             return Orientation.NORTH;
         }
+
+        public String toString() {
+            return "West";
+        }
     };
 
     public Position move(int displacement, Position old) {
@@ -69,6 +85,10 @@ public enum Orientation {
     }
 
     public Orientation rotateRight() {
+        throw new RuntimeErrorException(null, "rotateRight");
+    }
+
+    public String toString() {
         throw new RuntimeErrorException(null, "rotateRight");
     }
 }

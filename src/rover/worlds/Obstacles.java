@@ -33,4 +33,9 @@ public class Obstacles {
             return false;
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Obstacles [positions=" + positions + "]";
+    }
 }

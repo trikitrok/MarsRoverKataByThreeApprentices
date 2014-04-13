@@ -5,7 +5,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static rover.location.Orientation.NORTH;
-import static tests.rover.RoverBuilder.aRover;
+import static tests.RoverBuilder.aRover;
 
 import org.junit.Test;
 
